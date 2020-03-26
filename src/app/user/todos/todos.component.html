@@ -1,22 +1,27 @@
 <div *ngIf="!loading">
     <ul *ngIf="todos.length; else noTodos">
       <li *ngFor="let todo of todos">
-        <span [class.done]="todo.done">
         <input type="checkbox" [checked]="todo.done" (change)="onChange(todo.id)">
-        <strong>{{todo.id}}{{todo.name}}</strong> </span>
-        <small>{{todo.time | date:'medium'}}</small>
+        <a [routerLink]="['./', todo.id]">
+          <input type="checkbox" [checked]="todo.done" (change)="onChange(todo.id)">
+          <span [class.done]="todo.done"> 
+            <strong> {{todo.id}} {{todo.name}} </strong> 
+          </span>
+          <small> {{todo.time | date:'medium'}}  </small>
+        </a>
         <button class="rm" (click)="removeTodo(todo.id)">&times;</button>
       </li>
     </ul>
-    <div>
+    <div class="row">
+      <div class="input-field col s3">
         <input
           type="text"
           placeholder="Add todo title..."
           [(ngModel)]="title"
-          (keydown.enter)="addTodo()"
-        >
-        <button (click)="addTodo()">Add todo</button>
+          (keydown.enter)="addTodo()">
+        <button  class="btn btn-primary" (click)="addTodo()">Add todo</button>
       </div>
+    </div>
     
     <ng-template #noTodos>
       <p style="text-align: center;">No todos now!</p>

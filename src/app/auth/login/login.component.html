@@ -1,0 +1,5 @@
+<div>
+  <h3>{{message}}</h3>
+  <button class="btn waves-effect waves-light red" (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
+  <button class="btn waves-effect waves-light red" (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
+</div>

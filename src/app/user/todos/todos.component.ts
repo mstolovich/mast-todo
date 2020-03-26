@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { Todo } from '../todo'
-import { TodosService } from "../todos.service";
+import { Todo } from '../../todo'
+import { TodosService } from "../../todos.service";
 import { delay } from 'rxjs/operators';
 
 
@@ -40,7 +40,7 @@ export class TodosComponent implements OnInit {
       name: this.title,
       time: new Date(), 
       done: false
-    } as Todo)
+    } )
 
     this.title = '';
     this.todosService.addTodo(todo)

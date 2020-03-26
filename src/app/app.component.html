@@ -1,2 +1,12 @@
-<h1 align="center">TODO Application</h1>
-<app-todos></app-todos>
+<nav>
+    <div class="nav-wrapper">
+        <a routerLink="#" class="brand-logo center">TODO Application</a>
+        <ul id="nav-mobile" class="left">
+            <li><a routerLink="/login" routerLinkActive='active'>SignIn</a></li>
+            <li><a routerLink="/user" routerLinkActive="active">User</a></li>
+            <li><a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+<router-outlet></router-outlet>
+<router-outlet name="popup"></router-outlet>

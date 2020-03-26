@@ -8,16 +8,24 @@ import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodosComponent } from './todos/todos.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
+import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodosComponent
+    PageNotFoundComponent,
+    ComposeMessageComponent,
+   
   ],
   imports: [
     BrowserModule,
+    UserModule,
+    AuthModule,
     AppRoutingModule, 
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(

@@ -1,0 +1,40 @@
+<div *ngIf="todo" class="row col s6">
+  <p>Todo title:</p>
+  <h5><em><strong>{{todo.name}}</strong></em></h5>
+  <hr>
+</div> 
+
+  <form #editForm="ngForm" (ngSubmit)="saveChanges(editForm.value)" autocomplete="off">
+    
+    <div class="form-group">
+      <div class="row">
+        <div class="input-field col s3">
+          <h5>Change Todo title:</h5>
+            <input [(ngModel)]="todo.name" name="todoTitle" id="todoTitle" type="text" class="form-control" [placeholder]="todo.name"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s4">
+          <h5>Change Todo status:</h5>
+          <div class="switch">
+            <label>
+              Undone
+              <input
+              [(ngModel)]="todo.done"
+              name='todoStatus' 
+              type="checkbox" 
+              (change)="onChange(todo.id)"
+              [checked]="todo.done"
+              class="form-control">
+              <span class="lever"></span>
+              Done
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="editForm.invalid" class="btn btn-primary">Save</button>
+  </form>
+
+ 
